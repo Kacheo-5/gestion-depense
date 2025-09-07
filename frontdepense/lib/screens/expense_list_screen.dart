@@ -68,10 +68,7 @@ class _ExpenseListScreenState extends State<ExpenseListScreen> {
                   const SizedBox(height: 8),
                   Text(
                     '${snapshot.error}',
-                    style: TextStyle(
-                      color: Colors.grey[600],
-                      fontSize: 14,
-                    ),
+                    style: TextStyle(color: Colors.grey[600], fontSize: 14),
                     textAlign: TextAlign.center,
                   ),
                 ],
@@ -79,7 +76,7 @@ class _ExpenseListScreenState extends State<ExpenseListScreen> {
             );
           }
           final data = snapshot.data ?? [];
-          
+
           if (data.isEmpty) {
             return Center(
               child: Column(
@@ -102,17 +99,14 @@ class _ExpenseListScreenState extends State<ExpenseListScreen> {
                   const SizedBox(height: 8),
                   Text(
                     'Ajoutez votre première dépense\nen appuyant sur le bouton +',
-                    style: TextStyle(
-                      color: Colors.grey[500],
-                      fontSize: 16,
-                    ),
+                    style: TextStyle(color: Colors.grey[500], fontSize: 16),
                     textAlign: TextAlign.center,
                   ),
                 ],
               ),
             );
           }
-          
+
           return ListView.builder(
             padding: const EdgeInsets.all(16),
             itemCount: data.length,
@@ -135,7 +129,7 @@ class _ExpenseListScreenState extends State<ExpenseListScreen> {
       ),
     );
   }
-  
+
   Widget _buildExpenseCard(BuildContext context, Expense expense) {
     return Card(
       child: InkWell(
@@ -219,7 +213,7 @@ class _ExpenseListScreenState extends State<ExpenseListScreen> {
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
                   Text(
-                    '${expense.amount} €',
+                    '${expense.amount} FrancCfa',
                     style: const TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.bold,
@@ -240,13 +234,23 @@ class _ExpenseListScreenState extends State<ExpenseListScreen> {
       ),
     );
   }
-  
+
   String _formatDate(String dateStr) {
     try {
       final date = DateTime.parse(dateStr);
       final months = [
-        'Jan', 'Fév', 'Mar', 'Avr', 'Mai', 'Jun',
-        'Jul', 'Aoû', 'Sep', 'Oct', 'Nov', 'Déc'
+        'Jan',
+        'Fév',
+        'Mar',
+        'Avr',
+        'Mai',
+        'Jun',
+        'Jul',
+        'Aoû',
+        'Sep',
+        'Oct',
+        'Nov',
+        'Déc',
       ];
       return '${date.day} ${months[date.month - 1]} ${date.year}';
     } catch (e) {

@@ -105,7 +105,7 @@ class ExpenseDetailScreen extends StatelessWidget {
                         ),
                         const SizedBox(height: 8),
                         Text(
-                          '${expense.amount} €',
+                          '${expense.amount} FrancCfa',
                           style: const TextStyle(
                             fontSize: 32,
                             fontWeight: FontWeight.bold,

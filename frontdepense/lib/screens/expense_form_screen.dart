@@ -147,13 +147,14 @@ class _ExpenseFormScreenState extends State<ExpenseFormScreen> {
                       const SizedBox(height: 20),
                       _buildTextField(
                         label: 'Montant',
-                        icon: Icons.euro_outlined,
+                        icon: Icons.monetization_on_outlined,
                         initialValue: amount,
                         onChanged: (v) => amount = v,
                         validator: (v) =>
                             v!.isEmpty ? 'Ce champ est requis' : null,
                         hint: 'Ex: 25.50',
                         keyboardType: TextInputType.number,
+                        suffixText: 'FrancCfa',
                       ),
                     ],
                   ),
@@ -232,6 +233,7 @@ class _ExpenseFormScreenState extends State<ExpenseFormScreen> {
     required String? Function(String?) validator,
     String? hint,
     TextInputType? keyboardType,
+    String? suffixText,
   }) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -252,6 +254,7 @@ class _ExpenseFormScreenState extends State<ExpenseFormScreen> {
           keyboardType: keyboardType,
           decoration: InputDecoration(
             hintText: hint,
+            suffixText: suffixText,
             prefixIcon: Icon(icon, color: const Color(0xFF6B7280), size: 20),
             hintStyle: TextStyle(color: Colors.grey[400], fontSize: 14),
           ),
